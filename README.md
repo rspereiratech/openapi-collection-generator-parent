@@ -1,5 +1,13 @@
 # OpenAPI Collection Generator
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
+![Java 17+](https://img.shields.io/badge/Java-17%2B-blue)
+![Maven 3.9+](https://img.shields.io/badge/Maven-3.9%2B-C71A36?logo=apachemaven&logoColor=white)
+![OpenAPI 3.0](https://img.shields.io/badge/OpenAPI-3.0-6BA539?logo=openapiinitiative&logoColor=white)
+![Swagger v3](https://img.shields.io/badge/Swagger-v3-85EA2D?logo=swagger&logoColor=black)
+![Insomnia v4](https://img.shields.io/badge/Insomnia-v4-4000BF?logo=insomnia&logoColor=white)
+![Status: Snapshot](https://img.shields.io/badge/Status-Snapshot-orange)
+
 A Maven plugin that generates API client collections from OpenAPI specifications.
 
 ## Problem
@@ -128,3 +136,15 @@ When using a single format, the `{format}` placeholder is optional in the file n
 
 - Java 17+
 - Maven 3.9+
+
+## Contributing
+
+Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on reporting issues, setting up the development environment, and submitting pull requests.
+
+## Security
+
+If you discover a security vulnerability, please follow the process described in [SECURITY.md](SECURITY.md). Do not open a public issue for security reports.
+
+## License
+
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
