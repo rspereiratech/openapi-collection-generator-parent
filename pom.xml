@@ -69,23 +69,24 @@
     <properties>
         <!-- compiler -->
         <java.version>17</java.version>
+        <maven.version>3.9.0</maven.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- dependencies -->
         <openapi-collection-generator.version>1.0.0-SNAPSHOT</openapi-collection-generator.version>
-        <swagger-parser.version>2.1.20</swagger-parser.version>
-        <jackson.version>2.17.0</jackson.version>
+        <swagger-parser.version>2.1.41</swagger-parser.version>
+        <jackson.version>2.21.3</jackson.version>
 
         <!-- unit tests -->
-        <junit.version>5.10.2</junit.version>
-        <assertj.version>3.25.3</assertj.version>
-        <mockito.version>5.11.0</mockito.version>
+        <junit.version>5.14.4</junit.version>
+        <mockito.version>5.23.0</mockito.version>
 
         <!-- plugins -->
-        <maven-plugin-api.version>3.9.6</maven-plugin-api.version>
-        <maven-plugin-annotations.version>3.11.0</maven-plugin-annotations.version>
+        <maven-plugin-api.version>3.9.15</maven-plugin-api.version>
+        <maven-plugin-annotations.version>3.15.2</maven-plugin-annotations.version>
+        <maven-enforcer-plugin.version>3.6.2</maven-enforcer-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -137,12 +138,6 @@
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>org.assertj</groupId>
-                <artifactId>assertj-core</artifactId>
-                <version>${assertj.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-core</artifactId>
                 <version>${mockito.version}</version>
@@ -150,4 +145,48 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <version>${maven-enforcer-plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>enforce</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireMavenVersion>
+                                    <version>[${maven.version},)</version>
+                                    <message>Maven ${maven.version}+ is required.</message>
+                                </requireMavenVersion>
+                                <requireJavaVersion>
+                                    <version>[${java.version},)</version>
+                                    <message>Java ${java.version}+ is required.</message>
+                                </requireJavaVersion>
+                                <requireReleaseDeps>
+                                    <onlyWhenRelease>true</onlyWhenRelease>
+                                    <message>No SNAPSHOT dependencies are allowed in release builds.</message>
+                                </requireReleaseDeps>
+                                <dependencyConvergence/>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
