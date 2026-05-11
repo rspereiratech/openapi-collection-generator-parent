@@ -81,7 +81,7 @@
 
         <!-- unit tests -->
         <junit.version>5.10.2</junit.version>
-        <mockito.version>5.11.0</mockito.version>
+        <mockito.version>5.23.0</mockito.version>
 
         <!-- plugins -->
         <maven-plugin-api.version>3.9.6</maven-plugin-api.version>
