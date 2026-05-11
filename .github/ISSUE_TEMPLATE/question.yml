@@ -19,16 +19,16 @@ body:
   - type: textarea
     id: context
     attributes:
-      label: Plugin configuration (if relevant)
-      description: The `<plugin>` block from your `pom.xml`.
+      label: POM snippet (if relevant)
+      description: The relevant section of the POM that inherits from / imports this parent.
       render: xml
     validations:
       required: false
 
   - type: input
-    id: plugin-version
+    id: parent-version
     attributes:
-      label: Plugin version
+      label: Parent POM version
       placeholder: "1.0.0-SNAPSHOT"
     validations:
       required: false

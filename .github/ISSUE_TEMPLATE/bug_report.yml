@@ -1,43 +1,34 @@
 name: Bug Report
-description: Report a defect in the plugin or any of its modules
+description: Report a defect in the parent POM (dependency management, properties, build configuration)
 title: "[Bug]: "
 labels: ["bug", "triage"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to file a bug report. Please fill in as much detail as you can — a minimal reproduction is the single biggest help.
+        This repository hosts the **parent POM only**. For bugs in the runtime modules (`core`, `postman`, `insomnia`, `maven-plugin`), please open the issue on their respective repositories.
 
   - type: input
-    id: plugin-version
+    id: parent-version
     attributes:
-      label: Plugin version
-      description: Version of `openapi-collection-generator-maven-plugin` (or affected module).
+      label: Parent POM version
+      description: Version of `openapi-collection-generator-parent` you consumed.
       placeholder: "1.0.0-SNAPSHOT"
     validations:
       required: true
 
   - type: dropdown
-    id: module
+    id: area
     attributes:
-      label: Affected module
-      description: Which module exhibits the bug?
+      label: Affected area
+      description: Which part of the parent POM is misbehaving?
       options:
-        - openapi-collection-generator-maven-plugin
-        - openapi-collection-generator-core
-        - openapi-collection-generator-postman
-        - openapi-collection-generator-insomnia
-        - openapi-collection-generator-parent (build/aggregator)
-        - Unsure / multiple
-    validations:
-      required: true
-
-  - type: input
-    id: java-version
-    attributes:
-      label: Java version
-      description: Output of `java -version`.
-      placeholder: "17.0.10 (Temurin)"
+        - dependencyManagement (managed version)
+        - properties (Java / Maven / dependency version property)
+        - Build plugins / lifecycle
+        - Project metadata (groupId, version, name)
+        - Repository files (.github, README, etc.)
+        - Unsure
     validations:
       required: true
 
@@ -51,10 +42,11 @@ body:
       required: true
 
   - type: input
-    id: os
+    id: java-version
     attributes:
-      label: Operating system
-      placeholder: "macOS 14.4 / Ubuntu 22.04 / Windows 11"
+      label: Java version
+      description: Output of `java -version`.
+      placeholder: "17.0.10 (Temurin)"
     validations:
       required: true
 
@@ -67,20 +59,11 @@ body:
       required: true
 
   - type: textarea
-    id: plugin-config
+    id: consumer-pom
     attributes:
-      label: Plugin configuration
-      description: The `<plugin>` block from your `pom.xml` (redact anything sensitive).
+      label: Consumer POM snippet
+      description: The relevant section of the POM that inherits from / imports this parent (redact anything sensitive).
       render: xml
-    validations:
-      required: true
-
-  - type: textarea
-    id: openapi-snippet
-    attributes:
-      label: OpenAPI spec (minimal reproduction)
-      description: A minimal OpenAPI snippet that triggers the bug. Strip down to the smallest spec that still reproduces.
-      render: yaml
     validations:
       required: true
 
@@ -88,8 +71,8 @@ body:
     id: command
     attributes:
       label: Command executed
-      description: The exact Maven command run.
-      placeholder: "mvn clean generate-resources"
+      description: The exact Maven command that triggers the issue.
+      placeholder: "mvn clean install"
       render: shell
     validations:
       required: true
@@ -97,8 +80,8 @@ body:
   - type: textarea
     id: logs
     attributes:
-      label: Logs / stack trace
-      description: Relevant output, ideally with `-X` (debug) or `-e` (errors) Maven flags. Use code fences.
+      label: Logs / output
+      description: Relevant output, ideally with `-X` (debug) or `-e` (errors) Maven flags. Consider attaching `mvn help:effective-pom`.
       render: shell
     validations:
       required: false
@@ -118,7 +101,7 @@ body:
       options:
         - label: I searched existing issues and did not find a duplicate.
           required: true
-        - label: I am using a supported Java (17+) and Maven (3.9+) version.
+        - label: This bug concerns the parent POM, not a downstream module (which has its own repo).
           required: true
-        - label: My OpenAPI spec is valid OpenAPI 3.x.
+        - label: I am using a supported Java (17+) and Maven (3.9+) version.
           required: true
