@@ -81,7 +81,6 @@
 
         <!-- unit tests -->
         <junit.version>5.10.2</junit.version>
-        <assertj.version>3.25.3</assertj.version>
         <mockito.version>5.11.0</mockito.version>
 
         <!-- plugins -->
@@ -136,12 +135,6 @@
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter</artifactId>
                 <version>${junit.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.assertj</groupId>
-                <artifactId>assertj-core</artifactId>
-                <version>${assertj.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
