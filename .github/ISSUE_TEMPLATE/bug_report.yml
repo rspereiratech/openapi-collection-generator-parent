@@ -1,0 +1,124 @@
+name: Bug Report
+description: Report a defect in the plugin or any of its modules
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug report. Please fill in as much detail as you can — a minimal reproduction is the single biggest help.
+
+  - type: input
+    id: plugin-version
+    attributes:
+      label: Plugin version
+      description: Version of `openapi-collection-generator-maven-plugin` (or affected module).
+      placeholder: "1.0.0-SNAPSHOT"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: module
+    attributes:
+      label: Affected module
+      description: Which module exhibits the bug?
+      options:
+        - openapi-collection-generator-maven-plugin
+        - openapi-collection-generator-core
+        - openapi-collection-generator-postman
+        - openapi-collection-generator-insomnia
+        - openapi-collection-generator-parent (build/aggregator)
+        - Unsure / multiple
+    validations:
+      required: true
+
+  - type: input
+    id: java-version
+    attributes:
+      label: Java version
+      description: Output of `java -version`.
+      placeholder: "17.0.10 (Temurin)"
+    validations:
+      required: true
+
+  - type: input
+    id: maven-version
+    attributes:
+      label: Maven version
+      description: Output of `mvn -v`.
+      placeholder: "3.9.6"
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: "macOS 14.4 / Ubuntu 22.04 / Windows 11"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug description
+      description: What happened? What did you expect to happen instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: plugin-config
+    attributes:
+      label: Plugin configuration
+      description: The `<plugin>` block from your `pom.xml` (redact anything sensitive).
+      render: xml
+    validations:
+      required: true
+
+  - type: textarea
+    id: openapi-snippet
+    attributes:
+      label: OpenAPI spec (minimal reproduction)
+      description: A minimal OpenAPI snippet that triggers the bug. Strip down to the smallest spec that still reproduces.
+      render: yaml
+    validations:
+      required: true
+
+  - type: textarea
+    id: command
+    attributes:
+      label: Command executed
+      description: The exact Maven command run.
+      placeholder: "mvn clean generate-resources"
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / stack trace
+      description: Relevant output, ideally with `-X` (debug) or `-e` (errors) Maven flags. Use code fences.
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Anything else that might help — workarounds tried, hypotheses, links.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-flight checks
+      options:
+        - label: I searched existing issues and did not find a duplicate.
+          required: true
+        - label: I am using a supported Java (17+) and Maven (3.9+) version.
+          required: true
+        - label: My OpenAPI spec is valid OpenAPI 3.x.
+          required: true
