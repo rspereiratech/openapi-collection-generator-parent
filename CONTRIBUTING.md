@@ -95,7 +95,7 @@ To add support for a new collection format (e.g. Bruno, HTTPie):
 
 ## Code of Conduct
 
-Be respectful and constructive. Harassment, discrimination, or hostile behavior will not be tolerated. Disagreements should focus on technical merit.
+Be respectful and constructive. Disagreements should focus on technical merit. See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for details.
 
 ## License
 
