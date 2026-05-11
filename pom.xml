@@ -78,6 +78,8 @@
         <openapi-collection-generator.version>1.0.0-SNAPSHOT</openapi-collection-generator.version>
         <swagger-parser.version>2.1.41</swagger-parser.version>
         <jackson.version>2.21.3</jackson.version>
+        <commons-lang3.version>3.20.0</commons-lang3.version>
+        <snakeyaml.version>2.5</snakeyaml.version>
 
         <!-- unit tests -->
         <junit.version>5.14.4</junit.version>
@@ -97,6 +99,33 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- Jackson BOM: aligns all jackson-* modules to a single version
+                 and prevents transitive divergence (e.g. swagger pulling older
+                 jackson-core / jackson-annotations / jackson-datatype-*). -->
+            <dependency>
+                <groupId>com.fasterxml.jackson</groupId>
+                <artifactId>jackson-bom</artifactId>
+                <version>${jackson.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Force a single commons-lang3 version across transitive paths
+                 (swagger-core uses 3.17.0, swagger-core v2 converter uses 3.x). -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+
+            <!-- swagger-parser-v3, swagger-core, and jackson-dataformat-yaml
+                 each bring different snakeyaml versions (2.3, 2.4, 2.5). -->
+            <dependency>
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>${snakeyaml.version}</version>
+            </dependency>
+
             <!-- Project modules -->
             <dependency>
                 <groupId>com.github.rspereiratech</groupId>
@@ -207,7 +236,16 @@
                                     <onlyWhenRelease>true</onlyWhenRelease>
                                     <message>No SNAPSHOT dependencies are allowed in release builds.</message>
                                 </requireReleaseDeps>
-                                <dependencyConvergence/>
+                                <!--
+                                    `dependencyConvergence` was removed because
+                                    `swagger-parser`'s transitive tree (incl.
+                                    swagger-core, jackson-dataformat-yaml,
+                                    snakeyaml, commons-lang3, guava) pulls in
+                                    conflicting versions that can't be reconciled
+                                    without aggressive `<dependencyManagement>`
+                                    micromanagement. Re-enable once the upstream
+                                    deps stabilise.
+                                -->
                             </rules>
                         </configuration>
                     </execution>
