@@ -1,5 +1,6 @@
 # OpenAPI Collection Generator
 
+[![Build](https://github.com/rspereiratech/openapi-collection-generator-parent/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/rspereiratech/openapi-collection-generator-parent/actions/workflows/build.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 ![Java 17+](https://img.shields.io/badge/Java-17%2B-blue)
 ![Maven 3.9+](https://img.shields.io/badge/Maven-3.9%2B-C71A36?logo=apachemaven&logoColor=white)
@@ -7,6 +8,7 @@
 ![Swagger v3](https://img.shields.io/badge/Swagger-v3-85EA2D?logo=swagger&logoColor=black)
 ![Insomnia v4](https://img.shields.io/badge/Insomnia-v4-4000BF?logo=insomnia&logoColor=white)
 ![Status: Snapshot](https://img.shields.io/badge/Status-Snapshot-orange)
+[![Donate](https://img.shields.io/badge/Donate-NOWPayments-1A1A1A?logo=bitcoin&logoColor=white)](https://nowpayments.io/donation/rspereiratech)
 
 A Maven plugin that generates API client collections from OpenAPI specifications.
 
@@ -145,6 +147,14 @@ Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for gu
 
 If you discover a security vulnerability, please follow the process described in [SECURITY.md](SECURITY.md). Do not open a public issue for security reports.
 
+## Support
+
+[![Donate](https://img.shields.io/badge/Donate-NOWPayments-1A1A1A?logo=bitcoin&logoColor=white)](https://nowpayments.io/donation/rspereiratech)
+
+If this project saves you time, consider supporting development
+via [NOWPayments](https://nowpayments.io/donation/rspereiratech).
+Every contribution helps keep it maintained — thank you!
+
 ## License
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+[MIT](LICENSE) © 2026 rspereiratech
