@@ -1,0 +1,15 @@
+# Default owner for everything in the repo
+* @rspereiratech
+
+# Build / dependency management
+/pom.xml @rspereiratech
+
+# CI and repository automation
+/.github/ @rspereiratech
+/.github/workflows/ @rspereiratech
+
+# Project governance docs
+/LICENSE @rspereiratech
+/SECURITY.md @rspereiratech
+/CODE_OF_CONDUCT.md @rspereiratech
+/CONTRIBUTING.md @rspereiratech
