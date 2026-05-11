@@ -1,0 +1,44 @@
+name: Question / Support
+description: Ask a question about usage, configuration, or behavior
+title: "[Question]: "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before opening a question, please check the [README](../blob/master/README.md) and [CONTRIBUTING.md](../blob/master/CONTRIBUTING.md).
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+      description: What are you trying to achieve? What have you tried?
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Plugin configuration (if relevant)
+      description: The `<plugin>` block from your `pom.xml`.
+      render: xml
+    validations:
+      required: false
+
+  - type: input
+    id: plugin-version
+    attributes:
+      label: Plugin version
+      placeholder: "1.0.0-SNAPSHOT"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-flight checks
+      options:
+        - label: I read the README and configuration reference.
+          required: true
+        - label: I searched existing issues and discussions.
+          required: true
