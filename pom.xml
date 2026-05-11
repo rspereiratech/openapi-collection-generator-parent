@@ -12,6 +12,59 @@
 
     <name>OpenAPI Collection Generator</name>
     <description>A Maven plugin that generates API client collections (Postman, Insomnia) from OpenAPI specifications.</description>
+    <url>https://github.com/rspereiratech/openapi-collection-generator-parent</url>
+    <inceptionYear>2026</inceptionYear>
+
+    <organization>
+        <name>rspereiratech</name>
+        <url>https://github.com/rspereiratech</url>
+    </organization>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>rspereiratech</id>
+            <name>Rui Pereira</name>
+            <email>rspereiratech@gmail.com</email>
+            <url>https://github.com/rspereiratech</url>
+            <roles>
+                <role>maintainer</role>
+            </roles>
+            <timezone>Europe/Lisbon</timezone>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/rspereiratech/openapi-collection-generator-parent.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/rspereiratech/openapi-collection-generator-parent.git</developerConnection>
+        <url>https://github.com/rspereiratech/openapi-collection-generator-parent</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/rspereiratech/openapi-collection-generator-parent/issues</url>
+    </issueManagement>
+
+    <distributionManagement>
+        <repository>
+            <id>central</id>
+            <name>Maven Central</name>
+            <url>https://central.sonatype.com</url>
+        </repository>
+        <snapshotRepository>
+            <id>central</id>
+            <name>Central Portal Snapshots</name>
+            <url>https://central.sonatype.com/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <properties>
         <!-- compiler -->
