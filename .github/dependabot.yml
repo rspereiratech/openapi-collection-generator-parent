@@ -1,0 +1,50 @@
+version: 2
+updates:
+  # Managed dependencies and build plugins in the parent POM
+  - package-ecosystem: maven
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: Europe/Lisbon
+    open-pull-requests-limit: 10
+    labels:
+      - dependencies
+      - maven
+    commit-message:
+      prefix: "deps"
+      include: scope
+    groups:
+      jackson:
+        patterns:
+          - "com.fasterxml.jackson*"
+      junit:
+        patterns:
+          - "org.junit*"
+      mockito:
+        patterns:
+          - "org.mockito*"
+      maven-plugin-tools:
+        patterns:
+          - "org.apache.maven*"
+          - "org.apache.maven.plugin-tools*"
+    ignore:
+      # Java 17 is the minimum runtime; avoid major bumps that would force consumers to upgrade
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+
+  # GitHub Actions in workflows
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: Europe/Lisbon
+    labels:
+      - dependencies
+      - github-actions
+    commit-message:
+      prefix: "ci"
+      include: scope
