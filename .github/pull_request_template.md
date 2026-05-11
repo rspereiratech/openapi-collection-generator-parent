@@ -19,21 +19,21 @@ Closes #
 
 - [ ] Bug fix (non-breaking change that fixes an issue)
 - [ ] New feature (non-breaking change that adds functionality)
-- [ ] New output format module (e.g. Bruno, HTTPie)
 - [ ] Breaking change (fix or feature that would cause existing behavior to change)
 - [ ] Refactor (no functional change)
-- [ ] Build / dependency update
+- [ ] Dependency version bump (`dependencyManagement`)
+- [ ] Property / build configuration change
 - [ ] Documentation only
 
-## Affected Modules
+## Area of Change
 
 <!-- Check all that apply. -->
 
-- [ ] `openapi-collection-generator-parent`
-- [ ] `openapi-collection-generator-core`
-- [ ] `openapi-collection-generator-postman`
-- [ ] `openapi-collection-generator-insomnia`
-- [ ] `openapi-collection-generator-maven-plugin`
+- [ ] `dependencyManagement` (versions, new managed dependency)
+- [ ] `properties` (Java / Maven / dependency version properties)
+- [ ] Build plugins / lifecycle
+- [ ] Project metadata (groupId, version, name, description)
+- [ ] Repository files (README, LICENSE, CONTRIBUTING, SECURITY, CODE_OF_CONDUCT, `.github/`)
 
 ## Changes
 
@@ -42,32 +42,28 @@ Closes #
 -
 -
 
-## Configuration Impact
+## Downstream Impact
 
-<!-- If this PR touches the public plugin configuration, list what changed. Delete the section if not applicable. -->
+<!-- This is the parent POM. Changes here can ripple into the child modules (core, postman, insomnia, maven-plugin). Note any expected impact. Delete the section if not applicable. -->
 
-- New parameter(s):
-- Changed default(s):
-- Removed/renamed parameter(s):
+- Affected dependency / property:
+- Expected impact on child modules:
 
 ## Backwards Compatibility
 
 - [ ] Fully backwards compatible
-- [ ] Backwards compatible with deprecation warnings
+- [ ] Requires child modules to bump version
 - [ ] Breaking change (migration notes below)
 
-<!-- If breaking, describe what users need to do to migrate. -->
+<!-- If breaking, describe what consumers / child modules need to do to migrate. -->
 
 ## Testing
 
 <!-- How was this verified? -->
 
-- [ ] `mvn clean verify` passes locally
-- [ ] Added/updated unit tests
-- [ ] Manually tested against a sample OpenAPI spec
-- [ ] Output (Postman / Insomnia) imported successfully into the target tool
-
-<!-- Describe the test scenarios covered. Attach a minimal OpenAPI snippet and the generated output if relevant. -->
+- [ ] `mvn clean install` succeeds locally
+- [ ] Child modules build successfully against this parent
+- [ ] Effective POM verified (`mvn help:effective-pom`)
 
 ## Documentation
 

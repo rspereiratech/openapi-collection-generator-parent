@@ -1,26 +1,24 @@
 name: Feature Request
-description: Suggest a new feature, output format, or enhancement
+description: Suggest a change to the parent POM (dependency management, properties, build config, metadata)
 title: "[Feature]: "
 labels: ["enhancement", "triage"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for the suggestion! Please describe the use case so we can evaluate the proposal.
+        This repository hosts the **parent POM only**. Feature requests for the runtime modules (`core`, `postman`, `insomnia`, `maven-plugin`) belong on their respective repositories.
 
   - type: dropdown
     id: scope
     attributes:
       label: Scope
-      description: Which module would this affect?
+      description: Which part of the parent POM would this affect?
       options:
-        - New output format (new module, e.g. Bruno, HTTPie)
-        - openapi-collection-generator-maven-plugin (new goal / parameter)
-        - openapi-collection-generator-core (orchestration / parsing)
-        - openapi-collection-generator-postman
-        - openapi-collection-generator-insomnia
-        - Build / parent POM
-        - Documentation
+        - Add / bump managed dependency version (dependencyManagement)
+        - Add / change a property (Java / Maven / dependency version)
+        - Add / configure a build plugin
+        - Project metadata (groupId, name, description, scm, distributionManagement)
+        - Repository files (README, CONTRIBUTING, .github/, etc.)
         - Other
     validations:
       required: true
@@ -29,16 +27,15 @@ body:
     id: problem
     attributes:
       label: Problem / motivation
-      description: What problem does this solve? What's the use case?
-      placeholder: "Currently the plugin does X, but in scenario Y I need it to do Z because..."
+      description: What problem does this solve? What's the use case for the child modules that consume this parent?
     validations:
       required: true
 
   - type: textarea
     id: proposal
     attributes:
-      label: Proposed solution
-      description: How should this work? Include configuration examples if applicable.
+      label: Proposed change
+      description: Concrete change to the parent POM. Include an XML snippet if possible.
       render: xml
     validations:
       required: true
@@ -51,24 +48,16 @@ body:
     validations:
       required: false
 
-  - type: textarea
-    id: openapi-example
-    attributes:
-      label: Example OpenAPI spec (optional)
-      description: An OpenAPI snippet that illustrates the feature.
-      render: yaml
-    validations:
-      required: false
-
   - type: dropdown
     id: breaking
     attributes:
-      label: Backwards compatibility
-      description: Would this change break existing users?
+      label: Impact on child modules
+      description: Would this require child modules to change?
       options:
         - "No — purely additive"
-        - "Possibly — new default behavior"
-        - "Yes — breaking change"
+        - "Children should pick it up transparently on next version bump"
+        - "Children must update configuration"
+        - "Breaking — children won't build until they migrate"
         - "Unsure"
     validations:
       required: true
@@ -78,7 +67,7 @@ body:
     attributes:
       label: Contribution
       options:
-        - label: I am willing to submit a pull request implementing this feature.
+        - label: I am willing to submit a pull request implementing this change.
           required: false
 
   - type: checkboxes
@@ -87,4 +76,6 @@ body:
       label: Pre-flight checks
       options:
         - label: I searched existing issues and did not find a duplicate.
+          required: true
+        - label: This request concerns the parent POM, not a downstream module.
           required: true
