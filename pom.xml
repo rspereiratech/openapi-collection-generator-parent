@@ -5,7 +5,7 @@
            http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.rspereiratech</groupId>
+    <groupId>io.github.rspereiratech</groupId>
     <artifactId>openapi-collection-generator-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -128,17 +128,17 @@
 
             <!-- Project modules -->
             <dependency>
-                <groupId>com.github.rspereiratech</groupId>
+                <groupId>io.github.rspereiratech</groupId>
                 <artifactId>openapi-collection-generator-core</artifactId>
                 <version>${openapi-collection-generator.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.github.rspereiratech</groupId>
+                <groupId>io.github.rspereiratech</groupId>
                 <artifactId>openapi-collection-generator-postman</artifactId>
                 <version>${openapi-collection-generator.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.github.rspereiratech</groupId>
+                <groupId>io.github.rspereiratech</groupId>
                 <artifactId>openapi-collection-generator-insomnia</artifactId>
                 <version>${openapi-collection-generator.version}</version>
             </dependency>

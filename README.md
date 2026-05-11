@@ -46,7 +46,7 @@ Working with REST APIs often requires importing endpoints into tools like **Post
 <build>
     <plugins>
         <plugin>
-            <groupId>com.github.rspereiratech</groupId>
+            <groupId>io.github.rspereiratech</groupId>
             <artifactId>openapi-collection-generator-maven-plugin</artifactId>
             <version>1.0.0-SNAPSHOT</version>
             <executions>
