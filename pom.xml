@@ -7,7 +7,7 @@
 
     <groupId>io.github.rspereiratech</groupId>
     <artifactId>openapi-collection-generator-parent</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
 
     <name>OpenAPI Collection Generator</name>
@@ -75,7 +75,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- dependencies -->
-        <openapi-collection-generator.version>1.0.0-SNAPSHOT</openapi-collection-generator.version>
+        <openapi-collection-generator.version>1.0.0</openapi-collection-generator.version>
         <swagger-parser.version>2.1.41</swagger-parser.version>
         <jackson.version>2.21.3</jackson.version>
         <commons-lang3.version>3.20.0</commons-lang3.version>
