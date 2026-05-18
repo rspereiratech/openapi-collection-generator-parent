@@ -79,7 +79,7 @@
         <swagger-parser.version>2.1.41</swagger-parser.version>
         <jackson.version>2.21.3</jackson.version>
         <commons-lang3.version>3.20.0</commons-lang3.version>
-        <snakeyaml.version>2.5</snakeyaml.version>
+        <snakeyaml.version>2.6</snakeyaml.version>
 
         <!-- unit tests -->
         <junit.version>5.14.4</junit.version>
