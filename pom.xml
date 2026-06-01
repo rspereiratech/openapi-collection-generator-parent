@@ -77,7 +77,7 @@
         <!-- dependencies -->
         <openapi-collection-generator.version>1.0.0</openapi-collection-generator.version>
         <swagger-parser.version>2.1.41</swagger-parser.version>
-        <jackson.version>2.21.3</jackson.version>
+        <jackson.version>2.22.0</jackson.version>
         <commons-lang3.version>3.20.0</commons-lang3.version>
         <snakeyaml.version>2.5</snakeyaml.version>
 
