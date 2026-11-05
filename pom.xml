@@ -255,6 +255,23 @@
     </build>
 
     <profiles>
+        <!-- SNAPSHOTs go through the same Central Portal plugin and credentials as releases:
+             a plain maven-deploy-plugin PUT to /repository/maven-snapshots/ is refused (401). -->
+        <profile>
+            <id>snapshot</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <publishingServerId>central-portal</publishingServerId>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
         <!--
             Release profile.
 
